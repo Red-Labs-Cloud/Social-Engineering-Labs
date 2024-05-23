@@ -113,3 +113,9 @@ case "$deployment_type" in
   aws)
     deploy_aws
     ;;
+
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable socat.service
+sudo systemctl start socat.service
