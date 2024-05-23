@@ -5,8 +5,6 @@
 
 ## Control Panel
 
-
-
 ## GoPhish
 
  - Docker created to run locally
