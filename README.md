@@ -9,8 +9,8 @@
 
 ## GoPhish
 
-
-
+ - Docker created to run locally
+ - 
 
 
 ## EvilGinx
