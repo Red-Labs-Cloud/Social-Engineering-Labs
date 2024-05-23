@@ -1,0 +1,99 @@
+version: "3.3"
+
+services:
+
+  traefik:
+    image: "traefik:v3.0"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.web.address=:80"
+    ports:
+    #  - "8082:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+
+
+
+
+
+# Gophish
+# https://docs.getgophish.com
+  gophish:
+    image: "gophish/gophish"
+    container_name: "gophish"
+    environment:
+    # admin
+      - GOPHISH_INITIAL_ADMIN_PASSWORD=RFS
+    ports:
+     - 3333:3333
+    # - 8081:8081
+    # - 8443:8443
+    # - 81:80
+    restart: always
+    volumes:
+      - ./gophish/gophish.db:/app/database/gophish.db
+      #- gophish/static/endpoint:/app/static/endpoint
+      #- gophish/config.json:/app/config.json
+      #- gophish/gophish.crt:/app/admin.crt
+      #- gophish/gophish.key:/app/admin.key
+      #- gophish/phish.crt:/app/phish.crt
+      #- gophish/phish.key:/app/phish.key
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gophish.rule=Host(`gophish.localhost`)"
+      - "traefik.http.routers.gophish.entrypoints=web"
+
+# EvilGinX
+  evilginx2:
+    image: warhorse/evilginx2
+    container_name: "evilginx2"
+    environment:
+      - TZ=Europe/London
+    ports:
+      #- 80:80
+      - 443:443
+      - 53:53
+    depends_on:
+      - gophish
+    volumes:
+      - ./tools/evilginx2/config.yaml:/root/.evilginx/config.yaml
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.evilginx2.rule=Host(`evilginx.localhost`)"
+      - "traefik.http.routers.evilginx2.entrypoints=web"
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+# B33f
+  beef:
+    image: "rfs85dev/beef"
+    container_name: "beef"
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    environment:
+      - BEEF_USER="beefuser"
+      - BEEF_PASSWORD="beefpass"
+      #- MSF_SSL_VERIFY="false"
+    #  - BEEF_PUBLIC_IP="beef.local"
+    #  - BEEF_PUBLIC_PORT="3000"
+    volumes:
+      - ./beef/config.yaml:/home/beef/config.yaml 
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.beef.rule=Host(`beef.localhost`)"
+      - "traefik.http.routers.beef.entrypoints=web"
+
+
+
+
+
+volumes:
+  data:
