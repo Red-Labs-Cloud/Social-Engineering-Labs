@@ -1,4 +1,4 @@
-# RedSec Labs
+# Social Engineering Lab
 
 ## Installation
 
