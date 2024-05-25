@@ -66,27 +66,18 @@ services:
     tty: true
     restart: unless-stopped
 
-# B33f
-  beef:
-    image: "rfs85dev/beef"
-    container_name: "beef"
-    ports:
-      - 3000:3000
-    restart: unless-stopped
-    environment:
-      - BEEF_USER="beefuser"
-      - BEEF_PASSWORD="beefpass"
-      #- MSF_SSL_VERIFY="false"
-    #  - BEEF_PUBLIC_IP="beef.local"
-    #  - BEEF_PUBLIC_PORT="3000"
-    volumes:
-      - ./beef/config.yaml:/home/beef/config.yaml 
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.beef.rule=Host(`beef.localhost`)"
-      - "traefik.http.routers.beef.entrypoints=web"
-
 
 
 volumes:
   data:
+
+11
+
+networks:
+  Mynetwork:
+      driver: bridge
+      ipam:
+          driver: default
+          config:
+              - subnet: "192.168.100.0/24"
+                gateway: "192.168.100.1"
