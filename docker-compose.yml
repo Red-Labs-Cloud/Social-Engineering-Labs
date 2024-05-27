@@ -71,8 +71,6 @@ services:
 volumes:
   data:
 
-11
-
 networks:
   Mynetwork:
       driver: bridge
