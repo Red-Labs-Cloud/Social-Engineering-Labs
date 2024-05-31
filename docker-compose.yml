@@ -46,36 +46,52 @@ services:
 
 # EvilGinX
   evilginx2:
-    image: warhorse/evilginx2
-    container_name: "evilginx2"
+    image: rfs85dev/evilginx3:3.3.0
+    container_name: "evilginx"
     environment:
       - TZ=Europe/London
     ports:
-      #- 80:80
+      - 80:80
       - 443:443
       - 53:53
     depends_on:
       - gophish
     volumes:
-      - ./tools/evilginx2/config.yaml:/root/.evilginx/config.yaml
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - ./app/:/root/.evilginx
+      - ./app/phishlets:/app/phishlets
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.evilginx2.rule=Host(`evilginx.localhost`)"
-      - "traefik.http.routers.evilginx2.entrypoints=web"
+      - "traefik.http.routers.evilginx.rule=Host(`evilginx.localhost`)"
+      - "traefik.http.routers.evilginx.entrypoints=web"
     stdin_open: true
     tty: true
     restart: unless-stopped
+    #command: ["/bin/bash"]
+    command: ["/bin/evilginx", "-p", "/app/phishlets", "-debug", "-developer"]
 
-
+  postgres:
+    image: "postgres:latest"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+   # env_file:
+      #- ./.env.database
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    ports:
+      - 5454:5454/tcp
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=<redacted>
+      - PGADMIN_DEFAULT_PASSWORD=<redacted>
+      - PGADMIN_LISTEN_PORT=5454
+    depends_on:
+      - postgres
 
 volumes:
+  pgdata:
   data:
-
-networks:
-  Mynetwork:
-      driver: bridge
-      ipam:
-          driver: default
-          config:
-              - subnet: "192.168.100.0/24"
-                gateway: "192.168.100.1"
