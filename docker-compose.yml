@@ -29,7 +29,7 @@ services:
      - 3333:3333
     # - 8081:8081
     # - 8443:8443
-    # - 81:80
+    # - 80:80
     restart: always
     volumes:
       - ./gophish/gophish.db:/app/database/gophish.db
@@ -43,7 +43,10 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.gophish.rule=Host(`gophish.localhost`)"
       - "traefik.http.routers.gophish.entrypoints=web"
-
+    networks:
+      rfsnet:
+        ipv4_address: 10.10.10.2
+        
 # EvilGinX
   evilginx2:
     image: rfs85dev/evilginx3:3.3.0
@@ -51,8 +54,8 @@ services:
     environment:
       - TZ=Europe/London
     ports:
-      - 80:80
-      - 443:443
+      - 8081:80
+      - 9443:443
       - 53:53
     depends_on:
       - gophish
@@ -70,28 +73,53 @@ services:
     restart: unless-stopped
     #command: ["/bin/bash"]
     command: ["/bin/evilginx", "-p", "/app/phishlets", "-debug", "-developer"]
+    networks:
+      rfsnet:
+        ipv4_address: 10.10.10.3
+
 
   postgres:
     image: "postgres:latest"
     volumes:
       - pgdata:/var/lib/postgresql/data
-    expose:
-      - "5432"
     ports:
-      - "5432:5432"
+      - 5432:5432
    # env_file:
       #- ./.env.database
+    networks:
+      rfsnet:
+        ipv4_address: 10.10.10.4
+
   pgadmin:
     image: dpage/pgadmin4:latest
     ports:
       - 5454:5454/tcp
     environment:
-      - PGADMIN_DEFAULT_EMAIL=<redacted>
-      - PGADMIN_DEFAULT_PASSWORD=<redacted>
+      - PGADMIN_DEFAULT_EMAIL=rfs@rfs.test
+      - PGADMIN_DEFAULT_PASSWORD=RFSRFSRFS
       - PGADMIN_LISTEN_PORT=5454
     depends_on:
       - postgres
+    labels:
+     - "traefik.enable=true"
+     - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.localhost`)"
+     - "traefik.http.routers.pgadmin.entrypoints=web"
+    networks:
+      rfsnet:
+        ipv4_address: 10.10.10.5
+
+
 
 volumes:
   pgdata:
   data:
+
+
+networks:
+  rfsnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/24
+          gateway: 10.10.10.1
