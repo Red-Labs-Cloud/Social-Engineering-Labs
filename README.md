@@ -11,16 +11,25 @@ rfs@debian:~/Social-Engineering-Labs$ sudo ./install.sh
 ```console
 rfs@debian:~/Social-Engineering-Labs$ sudo redlabs --local
 ```
-## Control Panel
+### Control Panel
 
 - Traefik
 - Control Panel
-## Tools
+- PGAdmin
+
+### Tools
 
 - GoPhish
 - EvilGinx
 - Modlishka
 
+### Databases
 
+- PostGreSQL
 
-### Environment
+## Environment
+
+- DOMAIN=""
+- IP=""
+- SSH_KEY=""
+- CERTS_FOLDER=""
