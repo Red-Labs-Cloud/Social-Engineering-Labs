@@ -2,23 +2,13 @@
 
 ## Installation
 
-
+```console
+rfs@debian:~/Social-Engineering-Labs$ sudo ./install.sh
+```
 ## Control Panel
 
-## GoPhish
+## Tools
 
- - Docker created to run locally
- - 
-
-
-## EvilGinx
-
-
-
-
-## B33f
-
-
-
-
-## Modlishka
+- GoPhish
+- EvilGinx
+- Modlishka
