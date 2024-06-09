@@ -22,7 +22,8 @@ rfs@debian:~/Social-Engineering-Labs$ sudo redlabs --local
 - GoPhish
 - EvilGinx
 - Modlishka
-
+- Muraena
+- EvilnoVNC 
 ### Databases
 
 - PostGreSQL
