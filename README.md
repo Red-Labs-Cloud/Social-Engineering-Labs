@@ -9,24 +9,24 @@ rfs@debian:~/Social-Engineering-Labs$ sudo ./install.sh
 
 ## Deploy
 ```console
-rfs@debian:~/Social-Engineering-Labs$ sudo redlabs --local
+rfs@debian:~/Social-Engineering-Labs$ 
 ```
 ### Control Panel
 
-- Traefik
-- Control Panel
-- PGAdmin
+- Traefik - ok
+- Control Panel - InDev
+- PGAdmin - ok
 
 ### Tools
 
-- GoPhish
-- EvilGinx
+- GoPhish - ok
+- EvilGinx - ok
 - Modlishka
 - Muraena
 - EvilnoVNC 
 ### Databases
 
-- PostGreSQL
+- PostGreSQL - ok
 
 ## Environment
 
