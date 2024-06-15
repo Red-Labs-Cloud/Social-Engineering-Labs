@@ -22,9 +22,8 @@ services:
   gophish:
     image: "gophish/gophish"
     container_name: "gophish"
-    environment:
-    # admin
-      - GOPHISH_INITIAL_ADMIN_PASSWORD=RFS
+    env_file:
+      - ./.env
     ports:
      - 3333:3333
     # - 8081:8081
@@ -51,8 +50,8 @@ services:
   evilginx2:
     image: rfs85dev/evilginx3:3.3.0
     container_name: "evilginx"
-    environment:
-      - TZ=Europe/London
+    env_file:
+      - ./.env
     ports:
       - 8081:80
       - 9443:443
@@ -94,10 +93,8 @@ services:
     image: dpage/pgadmin4:latest
     ports:
       - 5454:5454/tcp
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=rfs@rfs.test
-      - PGADMIN_DEFAULT_PASSWORD=RFSRFSRFS
-      - PGADMIN_LISTEN_PORT=5454
+    env_file:
+      - ./.env
     depends_on:
       - postgres
     labels:
