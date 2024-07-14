@@ -46,6 +46,19 @@ banner()
     
 }
 
+lab()
+{
+
+echo -e "${RED} --------------------------------------------------------${ENDCOLOR}";
+echo -e "${YELLOW} | Frameworks/Apps           |    Local Domain          |      Technology    |${ENDCOLOR}";
+echo -e "${GREEN} | GoPhish  | http://gophish.localhost:3000  |  Phishing campaigns  |${ENDCOLOR}";
+echo -e "${RED} --------------------------------------------------------${ENDCOLOR}";
+echo -e "${YELLOW} | Dashboards     |     URL  |      Technology         |${ENDCOLOR}";
+echo -e "${GREEN} | VAmPI OK   | http://10.10.11.5:5000/ |  API Testing             |${ENDCOLOR}";
+echo -e "${RED} --------------------------------------------------------${ENDCOLOR}";
+
+
+}
 
 
 
@@ -58,5 +71,22 @@ build_lab()
     sudo docker ps --format "table {{.Names}}\t{{.Ports}}\t{{.Status}}"
 }
 
+
+
+check_command()
+{
+    if which docker >/dev/null; then
+    echo "docker exists"
+    else
+        echo " docker does not exist"
+    fi
+
+}
+
+
 banner
+detect_os
+folder_validation
 install_common_deps
+build_lab
+lab
