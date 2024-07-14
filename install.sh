@@ -52,7 +52,7 @@ echo -e "${GREEN}  | Muraena           | http://muraena.localhost:3000    |  Des
 echo -e "${GREEN}  | EvilnoVNC         | http://evilnovnc.localhost:3000  |  Description         |${ENDCOLOR}";
 echo -e "${RED} ----------------------------------------------------------|----------------------|${ENDCOLOR}";
 echo -e "${YELLOW}  |      Dashboards   |          URL                     |      Technology      |${ENDCOLOR}";
-echo -e "${GREEN}  | Traefik           | http://10.10.11.5:5000/          |  Docker proxies      |${ENDCOLOR}";
+echo -e "${GREEN}  | Traefik           | http://10.10.11.5:8080/          |  Docker proxies      |${ENDCOLOR}";
 echo -e "${GREEN}  | PGAdmin           | http://10.10.11.5:5000/          |  PG Dashboard        |${ENDCOLOR}";
 echo -e "${RED} ---------------------------------------------------------------------------------|${ENDCOLOR}";
 
@@ -80,7 +80,6 @@ build_lab()
 {
     echo -e "${GREEN}[*] Downloading Composer file....${ENDCOLOR}"
     sudo curl -sS https://social-engineering.redlabs.cloud/docker-compose.yml --output $FOLDER/docker-compose.yml
-    sudo curl -sS https://social-engineering.redlabs.cloud/config --output $FOLDER/config
     echo -e "${GREEN}[*] RFS is building the LAB... ${ENDCOLOR}"
     sudo docker-compose -f $FOLDER/docker-compose.yml up -d --quiet-pull
     sudo docker ps --format "table {{.Names}}\t{{.Ports}}\t{{.Status}}"

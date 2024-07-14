@@ -22,8 +22,11 @@ services:
   gophish:
     image: "gophish/gophish"
     container_name: "gophish"
-    env_file:
-      - ./config
+    environment:
+      - GOPHISH_PUBLIC_IP=""
+      - GOPHISH_PUBLIC_PORT=""
+      - GOPHISH_INITIAL_ADMIN_PASSWORD=""
+      - GOPHISH_MySQL_STRING=""
     ports:
      - 3333:3333
     # - 8081:8081
@@ -50,8 +53,8 @@ services:
   evilginx2:
     image: rfs85dev/evilginx3:3.3.0
     container_name: "evilginx"
-    env_file:
-      - ./config
+    environment:
+      - TZ=Europe/London
     ports:
       - 8081:80
       - 9443:443
@@ -93,8 +96,10 @@ services:
     image: dpage/pgadmin4:latest
     ports:
       - 5454:5454/tcp
-    env_file:
-      - ./config
+    environment:
+      - PGADMIN_DEFAULT_EMAIL="rfs@rfs.test"
+      - PGADMIN_DEFAULT_PASSWORD="RFSRFSRFS"
+      - PGADMIN_LISTEN_PORT="5454"
     depends_on:
       - postgres
     labels:
