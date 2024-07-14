@@ -3,7 +3,7 @@
 ## Installation
 
 ```console
-rfs@debian:~/Social-Engineering-Labs$ curl https://social-engineering.redlabs.cloud/install.sh | sudo bash -
+rfs@debian:~/$ curl -sSL https://social-engineering.redlabs.cloud/install.sh | bash
 ```
 
 
