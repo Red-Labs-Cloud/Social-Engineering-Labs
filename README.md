@@ -5,7 +5,11 @@
 ```console
 rfs@debian:~/$ curl -sSL https://social-engineering.redlabs.cloud/install.sh | bash
 ```
+## Destroy
 
+```console
+rfs@debian:~/$ curl -sSL https://social-engineering.redlabs.cloud/destroy.sh | bash
+```
 
 ### Control Panel
 
