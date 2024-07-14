@@ -9,6 +9,9 @@
 
 
 FOLDER="$HOME/Projects/SocialEng_LAB"
+DOMAIN="social-engineering.redlabs.cloud"
+
+
 
 ##Shell Colors
 YELLOW="\e[33m"
