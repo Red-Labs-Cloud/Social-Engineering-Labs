@@ -7,7 +7,7 @@
 # OS: Debian/Ubuntu/Kali
 # Version: 0.1
 
-
+LAB_NAME="Social Engineer LAB"
 FOLDER="$HOME/Projects/SocialEng_LAB"
 DOMAIN="social-engineering.redlabs.cloud"
 
@@ -71,7 +71,7 @@ folder_validation(){
 
 # Function to install common dependencies
 function install_common_deps() {
-  sudo apt update -y
+  #sudo apt update -y
   sudo apt install -y curl git unzip wget docker.io docker-compose
 }
 

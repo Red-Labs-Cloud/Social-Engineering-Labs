@@ -29,9 +29,3 @@ rfs@debian:~/$ curl -sSL https://social-engineering.redlabs.cloud/destroy.sh | b
 
 - PostGreSQL - ok
 
-## Environment
-
-- DOMAIN=""
-- IP=""
-- SSH_KEY=""
-- CERTS_FOLDER=""
