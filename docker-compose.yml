@@ -56,8 +56,8 @@ services:
     environment:
       - TZ=Europe/London
     ports:
-      - 8081:80
-      - 9443:443
+      - 80:8081
+      - 443:9443
       - 53:53
     depends_on:
       - gophish
