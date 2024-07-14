@@ -7,10 +7,6 @@ rfs@debian:~/$ curl -sSL https://social-engineering.redlabs.cloud/install.sh | b
 ```
 
 
-## Deploy
-```console
-rfs@debian:~/Social-Engineering-Labs$ 
-```
 ### Control Panel
 
 - Traefik - ok
@@ -24,6 +20,7 @@ rfs@debian:~/Social-Engineering-Labs$
 - Modlishka
 - Muraena
 - EvilnoVNC 
+
 ### Databases
 
 - PostGreSQL - ok
