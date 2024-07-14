@@ -36,5 +36,5 @@ banner()
 
 
 
-banner()
-install_common_deps()
+banner
+install_common_deps
