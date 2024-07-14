@@ -49,20 +49,20 @@ banner()
     echo "                                                                                                                         ";
     echo "                                                                                                                         ";
     echo -e "${GREEN}         Digital Ocean 100$ credit:                                                                ${ENDCOLOR}";
-    echo -e "${GREEN}         Hack The Box Pro labs:                                                                    ${ENDCOLOR}";
-    echo "                                                                                                                         ";
+    echo -e "${GREEN}         Hack The Box Pro labs:${ENDCOLOR}"  ${RED}   https://redlabs.cloud/                                                                  ;
+    echo "                                                                                                              ${ENDCOLOR}";
 }
 
 lab()
 {
 
 echo -e "${RED} --------------------------------------------------------${ENDCOLOR}";
-echo -e "${YELLOW} | Frameworks/Apps           |    Local Domain          |      Technology    |${ENDCOLOR}";
-echo -e "${GREEN} | GoPhish  | http://gophish.localhost:3000  |  Phishing campaigns  |${ENDCOLOR}";
-echo -e "${GREEN} | EvilGinx  | http://gophish.localhost:3000  |  Phishing campaigns  |${ENDCOLOR}";
-echo -e "${GREEN} | Modlishka  | http://gophish.localhost:3000  |  Phishing campaigns  |${ENDCOLOR}";
-echo -e "${GREEN} | Muraena  | http://gophish.localhost:3000  |  Phishing campaigns  |${ENDCOLOR}";
-echo -e "${GREEN} | EvilnoVNC  | http://gophish.localhost:3000  |  Phishing campaigns  |${ENDCOLOR}";
+echo -e "${YELLOW} |    Frameworks/Apps   |           Access               |      Functions       |${ENDCOLOR}";
+echo -e "${GREEN} | GoPhish               | http://gophish.localhost:3000  |  Phishing campaigns  |${ENDCOLOR}";
+echo -e "${GREEN} | EvilGinx              | http://evilginx.localhost:3000  |  MFA                 |${ENDCOLOR}";
+echo -e "${GREEN} | Modlishka             | http://modlishka.localhost:3000  |  Description         |${ENDCOLOR}";
+echo -e "${GREEN} | Muraena               | http://muraena.localhost:3000  |  Description         |${ENDCOLOR}";
+echo -e "${GREEN} | EvilnoVNC             | http://evilnovnc.localhost:3000  |  Description         |${ENDCOLOR}";
 echo -e "${RED} --------------------------------------------------------${ENDCOLOR}";
 echo -e "${YELLOW} | Dashboards     |     URL  |      Technology         |${ENDCOLOR}";
 echo -e "${GREEN} | Traefik   | http://10.10.11.5:5000/ |  Docker proxies           |${ENDCOLOR}";
