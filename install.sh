@@ -78,7 +78,7 @@ build_lab()
 {
     echo -e "${GREEN}[*] Downloading Composer file....${ENDCOLOR}"
     sudo curl -sS https://social-engineering.redlabs.cloud/docker-compose.yml --output $FOLDER/docker-compose.yml
-    sudo curl -sS https://social-engineering.redlabs.cloud/.env --output $FOLDER/.env
+    sudo curl -sS https://social-engineering.redlabs.cloud/config --output $FOLDER/config
     echo -e "${GREEN}[*] RFS is building the LAB... ${ENDCOLOR}"
     sudo docker-compose -f $FOLDER/docker-compose.yml up -d --quiet-pull
     sudo docker ps --format "table {{.Names}}\t{{.Ports}}\t{{.Status}}"
@@ -89,9 +89,9 @@ build_lab()
 check_command()
 {
     if which docker >/dev/null; then
-    echo "docker exists"
+    echo "Docker exists"
     else
-        echo " docker does not exist"
+        echo "Docker does not exist"
     fi
 
 }
@@ -99,6 +99,7 @@ check_command()
 
 banner
 folder_validation
+check_command
 install_common_deps
 build_lab
 lab
