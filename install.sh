@@ -17,4 +17,20 @@ function install_common_deps() {
 }
 
 
+banner()
+{
+    clear
+    echo "                                                                                                                       ";
+    echo -e "${GREEN}           Website: https://redlabs.cloud/                                                        ${ENDCOLOR}";
+    echo "                                                                                                                       ";   
+    echo "                                                                                                                       ";
+    echo -e "${RED}          Social Engineering Labs                                        ${ENDCOLOR}";
+    echo -e "${RED}           Discord: https://discord.redlabs.cloud/                           ${ENDCOLOR}";
+    echo -e "${GREEN}           Author: RFS                                                                            ${ENDCOLOR}";
+    
+}
+
+
+
+banner()
 install_common_deps()
