@@ -91,7 +91,8 @@ check_command()
     if which docker >/dev/null; then
     echo "Docker exists"
     else
-        echo "Docker does not exist"
+        echo "Docker does not exist - Installing..."
+        install_common_deps
     fi
 
 }
@@ -100,6 +101,6 @@ check_command()
 banner
 folder_validation
 check_command
-install_common_deps
+
 build_lab
 lab
