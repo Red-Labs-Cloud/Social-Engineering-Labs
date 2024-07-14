@@ -29,8 +29,8 @@ services:
       - GOPHISH_MySQL_STRING=""
     ports:
      - 3333:3333
-    # - 8081:8081
-    # - 8443:8443
+     - 8082:8081
+     - 8443:8443
     # - 80:80
     restart: always
     volumes:
