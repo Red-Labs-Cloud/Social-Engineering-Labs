@@ -7,7 +7,11 @@
 # OS: Debian/Ubuntu/Kali
 # Version: 0.1
 
-
+##Shell Colors
+YELLOW="\e[33m"
+RED="\e[31m"
+GREEN="\e[32m"
+ENDCOLOR="\e[0m"
 
 
 # Function to install common dependencies
