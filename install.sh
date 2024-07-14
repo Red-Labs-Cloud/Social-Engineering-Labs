@@ -20,20 +20,7 @@ GREEN="\e[32m"
 ENDCOLOR="\e[0m"
 
 
-folder_validation(){
-    if [ ! -d $FOLDER ]
-    then
-        echo -e "${GREEN}[*] Creating $FOLDER ... \n${ENDCOLOR}"
-        sudo mkdir -p $FOLDER
-        sudo mkdir -p $FOLDER/logs
-    fi
-}
 
-# Function to install common dependencies
-function install_common_deps() {
-  sudo apt update -y
-  sudo apt install -y curl git unzip wget docker.io docker-compose
-}
 
 
 banner()
@@ -64,14 +51,29 @@ echo -e "${GREEN}  | Modlishka         | http://modlishka.localhost:3000  |  Des
 echo -e "${GREEN}  | Muraena           | http://muraena.localhost:3000    |  Description         |${ENDCOLOR}";
 echo -e "${GREEN}  | EvilnoVNC         | http://evilnovnc.localhost:3000  |  Description         |${ENDCOLOR}";
 echo -e "${RED} ----------------------------------------------------------|----------------------|${ENDCOLOR}";
-echo -e "${YELLOW} | Dashboards   |     URL                 |         Technology                 |${ENDCOLOR}";
-echo -e "${GREEN}  | Traefik      | http://10.10.11.5:5000/ |  Docker proxies                    |${ENDCOLOR}";
-echo -e "${GREEN}  | PGAdmin      | http://10.10.11.5:5000/ |  Postgresql Dashboard              |${ENDCOLOR}";
+echo -e "${YELLOW} |      Dashboards   |          URL                     |      Technology      |${ENDCOLOR}";
+echo -e "${GREEN}  | Traefik           | http://10.10.11.5:5000/          |  Docker proxies      |${ENDCOLOR}";
+echo -e "${GREEN}  | PGAdmin           | http://10.10.11.5:5000/          |  PG Dashboard        |${ENDCOLOR}";
 echo -e "${RED} ---------------------------------------------------------------------------------|${ENDCOLOR}";
 
 
 }
 
+
+folder_validation(){
+    if [ ! -d $FOLDER ]
+    then
+        echo -e "${GREEN}[*] Creating $FOLDER ... \n${ENDCOLOR}"
+        sudo mkdir -p $FOLDER
+        sudo mkdir -p $FOLDER/logs
+    fi
+}
+
+# Function to install common dependencies
+function install_common_deps() {
+  sudo apt update -y
+  sudo apt install -y curl git unzip wget docker.io docker-compose
+}
 
 
 build_lab()
