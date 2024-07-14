@@ -46,7 +46,11 @@ banner()
     echo -e "${RED}           Social Engineering Labs                                                                   ${ENDCOLOR}";
     echo -e "${RED}           Discord: https://discord.redlabs.cloud/                                                   ${ENDCOLOR}";
     echo -e "${GREEN}         Author: RFS                                                                               ${ENDCOLOR}";
-    
+    echo "                                                                                                                         ";
+    echo "                                                                                                                         ";
+    echo -e "${GREEN}         Digital Ocean 100$ credit:                                                                ${ENDCOLOR}";
+    echo -e "${GREEN}         Hack The Box Pro labs:                                                                    ${ENDCOLOR}";
+    echo "                                                                                                                         ";
 }
 
 lab()

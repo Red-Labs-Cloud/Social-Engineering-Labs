@@ -23,7 +23,7 @@ services:
     image: "gophish/gophish"
     container_name: "gophish"
     env_file:
-      - ./.env
+      - ./config
     ports:
      - 3333:3333
     # - 8081:8081
@@ -51,7 +51,7 @@ services:
     image: rfs85dev/evilginx3:3.3.0
     container_name: "evilginx"
     env_file:
-      - ./.env
+      - ./config
     ports:
       - 8081:80
       - 9443:443
@@ -94,7 +94,7 @@ services:
     ports:
       - 5454:5454/tcp
     env_file:
-      - ./.env
+      - ./config
     depends_on:
       - postgres
     labels:
