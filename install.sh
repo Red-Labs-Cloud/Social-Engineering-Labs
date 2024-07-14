@@ -88,7 +88,6 @@ check_command()
 
 
 banner
-detect_os
 folder_validation
 install_common_deps
 build_lab
