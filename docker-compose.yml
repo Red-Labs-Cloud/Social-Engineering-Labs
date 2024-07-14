@@ -83,8 +83,8 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - 5432:5432
-   # env_file:
-      #- ./.env.database
+    env_file:
+      - ./config
     networks:
       rfsnet:
         ipv4_address: 10.10.10.4
