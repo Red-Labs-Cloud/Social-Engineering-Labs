@@ -1,5 +1,7 @@
 # Social Engineering Lab
 
+![Social Engineering Labs logo, cyberpunk style](./Cover.png)
+
 ## Installation
 
 ```console
