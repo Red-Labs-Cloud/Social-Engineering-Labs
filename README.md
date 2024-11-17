@@ -6,9 +6,8 @@ Here, you can explore the fascinating world of social engineering, learning how 
 
 ## What is Social Engineering?
 
-Social engineering is the art of manipulating individuals into divulging confidential information or performing actions
-
- that may compromise security. It's a critical component of cybersecurity assessments, as human factors are often the weakest link in any system.   
+Social engineering is the art of manipulating individuals into divulging confidential information or performing actions that may compromise security. \
+It's a critical component of cybersecurity assessments, as human factors are often the weakest link in any system.   
 
 
 
@@ -46,6 +45,6 @@ This allows you to embed a VNC server within a phishing page. When a victim inte
 
 ## Important Disclaimer
 
-Ethical Use Only: This lab is intended for educational and ethical hacking purposes only.
-Obtain Explicit Permission: Always get written consent before conducting any social engineering exercises against individuals or organizations.
+Ethical Use Only: This lab is intended for educational and ethical hacking purposes only. \
+Obtain Explicit Permission: Always get written consent before conducting any social engineering exercises against individuals or organizations. \
 Respect Privacy and Laws: Adhere to all applicable laws and regulations related to data privacy and security.
